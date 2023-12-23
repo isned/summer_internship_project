@@ -1,0 +1,53 @@
+<mat-sidenav-container class="sidenav-container">
+  <mat-sidenav #drawer class="sidenav" fixedInViewport
+      [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
+      [mode]="(isHandset$ | async) ? 'over' : 'side'"
+      [opened]="(isHandset$ | async) === false"
+      [style.background]="'#0096AE '"> 
+    <mat-toolbar > Menu</mat-toolbar>
+    <mat-nav-list>
+      <a mat-list-item (click)="onLink1Click()">
+        <mat-icon style="color: white;">insert_chart</mat-icon>
+        <span style="color: white;">Graphiques</span>
+      </a>
+      <a mat-list-item (click)="onLink2Click()">
+        <mat-icon style="color: white;">person</mat-icon>
+        <span style="color: white;">Clients</span>
+      </a>
+      <a mat-list-item (click)="onLink3Click()">
+        <mat-icon style="color: white;">add_circle</mat-icon>
+        <span style="color: white;">Ajout client</span>
+    </a>
+    
+    </mat-nav-list>
+    
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <mat-toolbar style="background: white;" class="toolbar">
+
+      <button
+        type="button"
+        aria-label="Toggle sidenav"
+        mat-icon-button
+        (click)="drawer.toggle()"
+        *ngIf="isHandset$ | async">
+        <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+      </button>
+      <span><mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="home"></mat-icon>
+        Dashboard</span>
+      <span class="flex-spacer"></span> <!-- Ajoutez une espaceur flexible -->
+    <!--  <button mat-button (click)="logout()">Logout</button>-->
+    <button mat-icon-button (click)="logout()">
+      <mat-icon aria-label="Logout icon">power_settings_new</mat-icon>
+    </button>
+    </mat-toolbar>
+    <app-dashboard *ngIf="showDashboard"></app-dashboard>
+    <app-orders-table *ngIf="showTable"></app-orders-table>
+    <app-add-client *ngIf="showClient"></app-add-client>
+    <!-- Add Content Here -->
+    <!--<app-dashboard ></app-dashboard>-->
+   <!--<app-dashboard *ngIf="showDashboard"></app-dashboard>--> 
+   <!--<app-table-flex-large-row-example *ngIf="showTable"></app-table-flex-large-row-example>-->
+  </mat-sidenav-content>
+</mat-sidenav-container>
+

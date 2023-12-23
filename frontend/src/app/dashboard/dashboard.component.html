@@ -1,0 +1,81 @@
+<!--<div class="grid-container">
+ <!-- <h1 class="mat-h1">Dashboard</h1>
+  <mat-grid-list cols="2" rowHeight="350px">
+    <mat-grid-tile *ngFor="let card of cards | async" [colspan]="card.cols" [rowspan]="card.rows">
+      <mat-card class="dashboard-card"> 
+        <mat-card-header>
+          <mat-card-title>
+            {{card.title}}
+            <button mat-icon-button class="more-button" [matMenuTriggerFor]="menu" aria-label="Toggle menu">
+              <mat-icon>more_vert</mat-icon>
+            </button>
+            <mat-menu #menu="matMenu" xPosition="before">
+              <button mat-menu-item>Expand</button>
+              <button mat-menu-item>Remove</button>
+            </mat-menu>
+          </mat-card-title>
+        </mat-card-header>
+        <mat-card-content class="dashboard-card-content">
+          <div *ngIf="card.title === 'Card 3'" class="pie-chart">
+            <app-mychart2></app-mychart2>
+          </div>
+          <div *ngIf="card.title === 'Card 2'" class="bar-chart">
+            <app-mychart></app-mychart>
+          </div>
+          <div *ngIf="card.title === 'Card 1'" class="line-chart">
+            <app-linechart></app-linechart>
+          </div>
+          <div *ngIf="card.title === 'Card 4'" class="doughnut-chart">
+            <app-mychartdoughnut></app-mychartdoughnut>
+          </div>
+         
+         
+          <div *ngIf="card.title !== 'Card 1' && card.title !== 'Card 2' && card.title !== 'Card 3' && card.title !== 'Card 4'">
+          </div>
+        </mat-card-content>
+      </mat-card>
+    </mat-grid-tile>
+  </mat-grid-list>
+</div>-->
+
+<div class="grid-container" class="color-surface">
+<!-- <h1 class="mat-h1">Dashboard</h1>-->
+<mat-grid-list cols="2" rowHeight="350px">
+  <mat-grid-tile *ngFor="let card of cards | async; let i = index" [colspan]="card.cols" [rowspan]="card.rows">
+    <mat-card class="dashboard-card" [ngClass]="{'expanded-card': i === expandedCardIndex}">
+      <mat-card-header>
+        <mat-card-title>
+          <span style="color: white;">{{card.title}}</span>
+          <button mat-icon-button class="more-button" [matMenuTriggerFor]="menu" aria-label="Toggle menu">
+            <mat-icon>more_vert</mat-icon>
+          </button>
+          <mat-menu #menu="matMenu" xPosition="before">
+            <button mat-menu-item (click)="toggleCardExpansion(i)">Élargir</button>
+            <button mat-menu-item (click)="collapseCard(i)">Retirer</button>
+          </mat-menu>
+        </mat-card-title>
+      </mat-card-header>
+      <mat-card-content class="dashboard-card-content">
+        <div *ngIf="card.title === 'Card 3'" class="pie-chart">
+          <app-mychart2></app-mychart2>
+        </div>
+        <div *ngIf="card.title === 'Card 2'" class="bar-chart">
+          <app-mychart></app-mychart>
+        </div>
+        <div *ngIf="card.title === 'Card 1'" class="line-chart">
+          <app-linechart></app-linechart>
+        </div>
+        <div *ngIf="card.title === 'Card 4'" class="doughnut-chart">
+          <app-mychartdoughnut></app-mychartdoughnut>
+        </div>
+       
+       
+        <div *ngIf="card.title !== 'Card 1' && card.title !== 'Card 2' && card.title !== 'Card 3' && card.title !== 'Card 4'">
+        </div>
+      </mat-card-content>
+    </mat-card>
+  </mat-grid-tile>
+</mat-grid-list>
+</div>
+
+

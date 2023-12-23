@@ -1,0 +1,19 @@
+.edit-client-form {
+    /* Add your styles here */
+    padding: 10px; /* Reduce the padding */
+    border: 1px solid #ccc;
+    background-color: #f5f5f5;
+    max-width: 400px; /* Set a maximum width for the form */
+    margin: 0 auto; /* Center the form horizontally */
+    box-sizing: border-box; /* Ensure padding and border are included in the width */
+  }
+  
+  /* Additional styles for specific form elements if needed */
+  .edit-client-form mat-form-field {
+    margin-bottom: 10px;
+  }
+  
+  .edit-client-form button {
+    margin-top: 10px;
+  }
+  

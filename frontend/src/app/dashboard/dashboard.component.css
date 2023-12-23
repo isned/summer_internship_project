@@ -1,0 +1,35 @@
+.grid-container {
+  margin: 20px;
+}
+
+.dashboard-card {
+  position: absolute;
+  top: 15px;
+  left: 15px;
+  right: 15px;
+  bottom: 15px;
+}
+
+.more-button {
+  position: absolute;
+  top: 5px;
+  right: 10px;
+}
+
+.dashboard-card-content {
+  text-align: center;
+}
+
+/*.jj{
+ 
+  height: 400px;
+ 
+}*/
+/* dashboard.component.css */
+.expanded-card {
+  transform: scale(1.1); /* Ajustez la valeur selon vos besoins */
+  transition: transform 0.3s ease-in-out;
+}
+.color-surface {
+  background-color: #F0F0F2;
+}

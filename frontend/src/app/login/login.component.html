@@ -1,0 +1,39 @@
+<mat-card>
+    <mat-card-content>
+        <div class="header">
+            <h2>CONNEXION</h2>
+        </div>
+        <form (ngSubmit)="onLogin()" [formGroup]="loginForm">
+            <div class="email-input">
+                <mat-form-field class="full-width" appearance="outline">
+                    <mat-label>Nom d'utilisateur</mat-label>
+                    <input formControlName="username" matInput required/>
+                    <mat-error >
+                        Nom d'utilisateur requis
+                    </mat-error>
+                </mat-form-field>
+            </div>
+            <div>
+                <span class="aLink"><a mat-button color="primary" routerLink="/forgot_password">Mot de passe oublié ? </a></span>
+                <mat-form-field class="full-width" appearance="outline">
+                    <mat-label>Mot de passe</mat-label>
+                    <input formControlName="password" matInput [type]="hide ? 'password' : 'text'" required/>
+                    <button mat-icon-button matSuffix (click)="togglePasswordVisibility()"
+                            [attr.aria-label]="hide ? 'Show Password' : 'Hide Password'"
+                            [attr.aria-pressed]="hide">
+                        <mat-icon>{{ hide ? 'visibility_off' : 'visibility' }}</mat-icon>
+                    </button>
+                    <mat-error >
+                        Mot de passe requis
+                    </mat-error>
+                </mat-form-field>
+            </div>
+            <button mat-flat-button color="primary">Se connecter</button>
+        </form>
+        <div class="spacer"></div> 
+        <span class="link-register">Vous n'avez pas de compte ? <a mat-button color="primary" routerLink="/register">S'inscrire</a></span>
+        <div *ngIf="showErrorMessage" class="error-message">
+            Identifiants invalides. Veuillez réessayer.
+          </div>
+    </mat-card-content>
+</mat-card>

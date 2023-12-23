@@ -1,0 +1,67 @@
+<div class="edit-client-form">
+    <h2>Modifier les informations</h2>
+    <form (ngSubmit)="onSave()" #editForm="ngForm">
+      <mat-form-field class="form-field">
+        <mat-label>Score de crédit :</mat-label>
+        <input matInput type="number" name="credit_score" [(ngModel)]="updatedData.credit_score" required>
+      </mat-form-field>
+      <mat-form-field class="form-field">
+        <mat-label>Pays :</mat-label>
+        <input matInput type="text" name="country" [(ngModel)]="updatedData.country" required>
+      </mat-form-field>
+      <div class="form-field">
+        <mat-label>Genre :</mat-label>
+        <mat-radio-group name="gender" [(ngModel)]="updatedData.gender" required>
+          <mat-radio-button value="Femme">Femme</mat-radio-button>
+          <mat-radio-button value="Homme">Homme</mat-radio-button>
+        </mat-radio-group>
+      </div>
+      <mat-form-field class="form-field">
+        <mat-label>Âge :</mat-label>
+        <input matInput type="number" name="age" [(ngModel)]="updatedData.age" required>
+      </mat-form-field>
+      <mat-form-field class="form-field">
+        <mat-label>Ancienneté :</mat-label>
+        <input matInput type="number" name="ancienneté" [(ngModel)]="updatedData.anciennete" required>
+      </mat-form-field>
+      <mat-form-field class="form-field">
+        <mat-label>Solde :</mat-label>
+        <input matInput type="number" name="solde" [(ngModel)]="updatedData.solde" required>
+      </mat-form-field>
+      <div class="form-field">
+        <mat-label>Carte de crédit :</mat-label>
+        <mat-radio-group name="carte_de_credit" [(ngModel)]="updatedData.carte_de_credit" required>
+          <mat-radio-button value="1">Oui</mat-radio-button>
+          <mat-radio-button value="0">Non</mat-radio-button>
+        </mat-radio-group>
+      </div>
+      
+   
+      <div class="form-field">
+        <mat-label>Membre actif :</mat-label>
+        <mat-radio-group name="membre_actif" [(ngModel)]="updatedData.membre_actif" required>
+          <mat-radio-button value="oui">Oui</mat-radio-button>
+          <mat-radio-button value="non">Non</mat-radio-button>
+        </mat-radio-group>
+      </div>
+  
+      <mat-form-field class="form-field">
+        <mat-label>Salaire estimé :</mat-label>
+        <input matInput type="number" name="salaire_estimé" [(ngModel)]="updatedData.salaire_estime" required>
+      </mat-form-field>
+  
+      <div class="form-field">
+        <mat-label>Désabonnement :</mat-label>
+        <mat-radio-group name="desabonnement" [(ngModel)]="updatedData.desabonnement" required>
+          <mat-radio-button value="oui">Oui</mat-radio-button>
+          <mat-radio-button value="non">Non</mat-radio-button>
+        </mat-radio-group>
+      </div>
+  
+      <div class="form-actions">
+        <button mat-raised-button color="warn" (click)="onCancel()">Annuler</button>
+        <button mat-raised-button color="primary" type="submit" [disabled]="!editForm.form.valid">Enregistrer</button>
+      </div>
+    </form>
+  </div>
+  
